@@ -12,20 +12,27 @@
     sudo mkdir -p /etc/pihole
     sudo mkdir -p /etc/dnsmasq.d
     ```
-2. Grab the code
+2. If installing from source, grab the code
     ```shell
     # On your Pi
-    RELEASE=pihole
-    NAMESPACE=pihole-n
     CHART="./piholechart"
 
     git clone https://github.com/santisbon/pi-hole-k8s.git && cd pi-hole-k8s
     nano $CHART/values.yaml
     # edit the values
     ```
+    Or if installing from the repository:
+    ```shell
+    # On your Pi
+    helm repo add santisbon https://santisbon.github.io/charts/
+    CHART="santisbon/pihole"
+    ```
 3. Install the Helm chart which will [enforce the installation order](https://helm.sh/docs/intro/using_helm). Replace parameters with a secure password and the static IP of your Pi if you didn't do it through the `values.yaml` file. If using MicroK8s type the commands as `microk8s helm` and `microk8s kubectl`.
     ```shell
     # On your Pi
+    RELEASE=pihole
+    NAMESPACE=pihole-n
+
     helm install $RELEASE $CHART \
         -n $NAMESPACE \
         --create-namespace \
