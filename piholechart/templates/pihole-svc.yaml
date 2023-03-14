@@ -6,7 +6,7 @@ spec:
   selector:
     app: pihole
   ports:
-  - port: 8000
+  - port: {{ .Values.webPort }}
     targetPort: 80
     name: pihole-admin
   - port: 53
