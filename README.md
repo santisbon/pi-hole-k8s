@@ -2,8 +2,8 @@
 
 ## Install
 
-1. [Set up](https://hackmd.io/orA0LyvaS1iGyBfTBdLbvg?view#Raspberry-Pi) your Raspberry Pi with a static IP.
-2. [Install and configure MicroK8s](https://hackmd.io/orA0LyvaS1iGyBfTBdLbvg?view#MicroK8s) (or any other lightweight Kubernetes distribution) on your Raspberry Pi.
+1. [Set up](https://hackmd.io/@santisbon/Hk9NddPqj#Raspberry-Pi) your Raspberry Pi with a static IP.
+2. [Install and configure MicroK8s](https://hackmd.io/@santisbon/Hk9NddPqj#MicroK8s) (or any other lightweight Kubernetes distribution) on your Raspberry Pi.
 3. On your Raspberry Pi:
     ```shell
     git clone https://github.com/santisbon/pi-hole-k8s.git && cd pi-hole-k8s
@@ -16,7 +16,7 @@
 4. On your Pi, install the Helm chart which will [enforce the installation order](https://helm.sh/docs/intro/using_helm). Replace parameters with a secure password and the static IP of your Raspberry Pi if you didn't do it through the `values.yaml` file. If using MicroK8s type the commands as `microk8s helm` and `microk8s kubectl`.
     ```shell
     RELEASE=pihole
-    
+
     helm install $RELEASE ./piholechart \
         --namespace $RELEASE-n \
         --create-namespace \
