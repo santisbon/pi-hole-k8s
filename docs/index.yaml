@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  piholechart:
+  - apiVersion: v2
+    created: "2023-03-13T23:39:42.287166-05:00"
+    description: A Helm chart for installing Pi-hole on Kubernetes
+    digest: 6aa4d65874b8b003cd0529a40852d475a4d85d9420ee2dec59c5d98a6555118c
+    name: piholechart
+    type: application
+    urls:
+    - piholechart-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-03-13T23:39:42.286529-05:00"
