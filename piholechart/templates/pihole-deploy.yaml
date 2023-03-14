@@ -1,0 +1,35 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: {{ .Release.Name }}-pihole-deploy
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: pihole
+  template:
+    metadata:
+      labels:
+        app: pihole
+    spec:
+      containers:
+      - name: pihole-c
+        image: pihole/pihole:latest
+        imagePullPolicy: Always
+        env:
+        - name: TZ
+          value: "America/Chicago"
+        - name: WEBPASSWORD
+          value: {{ .Values.webPassword | quote }}
+        volumeMounts:
+        - name: etc-pihole-vol
+          mountPath: "/etc/pihole"
+        - name: etc-dnsmasqd-vol
+          mountPath: "/etc/dnsmasq.d"
+      volumes:
+      - name: etc-pihole-vol
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-etc-pihole-pvc
+      - name: etc-dnsmasqd-vol
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-etc-dnsmasqd-pvc
