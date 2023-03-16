@@ -1,8 +1,8 @@
 # Network-wide ad blocking with Pi-hole, Kubernetes, and Raspberry Pi
 
 ## Prerequisites
-1. [Set up](https://hackmd.io/@santisbon/Hk9NddPqj#Raspberry-Pi) your Raspberry Pi with a static IP.
-2. [Install and configure MicroK8s](https://hackmd.io/@santisbon/Hk9NddPqj#MicroK8s) (or any other lightweight Kubernetes distribution) on your Pi.
+1. [Set up](https://santisbon.github.io/reference/rpi/) your Raspberry Pi with a static IP.
+2. [Install and configure MicroK8s](https://santisbon.github.io/reference/k8s/#microk8s) (or any other lightweight Kubernetes distribution) on your Pi.
 
 ## Install
 
